@@ -1,24 +1,13 @@
 function hasTargetSum(array, target) {
   // Write your algorithm here
-for(let i = 0; i < array.length; i++){
-  const neededValue = target - array[i]
-  const num2 = target -neededValue
-  for (let j = i + 1; j < array; j++){
-    if(num2 === j ){
-      return true
-    }else if(num2 != j){
-      return false
-    }else{
-      return false
-    }
+  const seenNumbers ={};
+  for (let i=0; i< array.length; i++){
+    const complement = target-array[i]
+    if (seenNumbers[complement])return true
+  seenNumbers[array[i]]=true
   }
-  if (num2 + neededValue === target){
-    return true
-  }else if(num2 + neededValue != target){
-    return false
-  }
-}}
-
+  return false
+}
 /*
 Write the Big O time complexity of your function here
 */
